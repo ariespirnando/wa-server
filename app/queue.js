@@ -2,7 +2,7 @@ const Queue = require('bull');
 const Redis = require('ioredis');
 
 const redisOptions = {
-  host: '192.168.1.226', // Service name in docker-compose
+  host: 'redis',//'192.168.1.226', // Service name in docker-compose
   port: 6379
 };
 

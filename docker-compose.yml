@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  whatsapp-server:
+    build: .
+    container_name: whatsapp-server
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app/.wwebjs_auth:/app/app/.wwebjs_auth # Persist sessions
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:6
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"

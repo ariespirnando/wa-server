@@ -58,11 +58,18 @@ async function initClient(clientId) {
 
 function getClient(clientIds) {
   if (Array.isArray(clientIds)) {
-    if (clientIds.length === 1) return clients.get(clientIds[0]);
-    const rand = Math.floor(Math.random() * clientIds.length);
-    return clients.get(clientIds[rand]);
+    const readyClients = clientIds
+      .map(id => ({ id, client: clients.get(id) }))
+      .filter(({ client }) => client && client.info); 
+
+    if (readyClients.length === 0) return null;
+
+    const randIndex = Math.floor(Math.random() * readyClients.length);
+    return readyClients[randIndex].client;
   }
-  return clients.get(clientIds);
+
+  const client = clients.get(clientIds);
+  return client && client.info ? client : null;
 }
 
 function getClientStatus(clientId) {

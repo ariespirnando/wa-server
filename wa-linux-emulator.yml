@@ -2,18 +2,16 @@ version: '3.8'
 
 services:
   android1:
-    image: budtmo/docker-android-x86:11.0
+    image: budtmo/docker-android:emulator_11.0
     container_name: android1
     privileged: true
     ports:
       - "6080:6080"
-      - "5555:5555"
     environment:
-      - DEVICE=Samsung Galaxy S10
+      - EMULATOR_DEVICE=Samsung Galaxy S10
       - WEB_VNC=true
-      - MEMORY=2048
-      - CPU=2
-      - AUTO_INSTALL_APK=/apk/whatsapp.apk
+    devices:
+      - /dev/kvm
     volumes:
       - ./data/android1-data:/root/android-storage
       - ./apk:/apk
@@ -22,18 +20,16 @@ services:
       - intn-network
 
   android2:
-    image: budtmo/docker-android-x86:11.0
+    image: budtmo/docker-android:emulator_11.0
     container_name: android2
     privileged: true
     ports:
       - "6081:6080"
-      - "5556:5555"
     environment:
-      - DEVICE=Samsung Galaxy S10
+      - EMULATOR_DEVICE=Samsung Galaxy S10
       - WEB_VNC=true
-      - MEMORY=2048
-      - CPU=2
-      - AUTO_INSTALL_APK=/apk/whatsapp.apk
+    devices:
+      - /dev/kvm
     volumes:
       - ./data/android2-data:/root/android-storage
       - ./apk:/apk
@@ -42,18 +38,16 @@ services:
       - intn-network
 
   android3:
-    image: budtmo/docker-android-x86:11.0
+    image: budtmo/docker-android:emulator_11.0
     container_name: android3
     privileged: true
     ports:
       - "6082:6080"
-      - "5557:5555"
     environment:
-      - DEVICE=Samsung Galaxy S10
+      - EMULATOR_DEVICE=Samsung Galaxy S10
       - WEB_VNC=true
-      - MEMORY=2048
-      - CPU=2
-      - AUTO_INSTALL_APK=/apk/whatsapp.apk
+    devices:
+      - /dev/kvm
     volumes:
       - ./data/android3-data:/root/android-storage
       - ./apk:/apk
@@ -62,18 +56,16 @@ services:
       - intn-network
 
   android4:
-    image: budtmo/docker-android-x86:11.0
+    image: budtmo/docker-android:emulator_11.0
     container_name: android4
     privileged: true
     ports:
       - "6083:6080"
-      - "5558:5555"
     environment:
-      - DEVICE=Samsung Galaxy S10
+      - EMULATOR_DEVICE=Samsung Galaxy S10
       - WEB_VNC=true
-      - MEMORY=2048
-      - CPU=2
-      - AUTO_INSTALL_APK=/apk/whatsapp.apk
+    devices:
+      - /dev/kvm
     volumes:
       - ./data/android4-data:/root/android-storage
       - ./apk:/apk
@@ -82,18 +74,16 @@ services:
       - intn-network
 
   android5:
-    image: budtmo/docker-android-x86:11.0
+    image: budtmo/docker-android:emulator_11.0
     container_name: android5
     privileged: true
     ports:
       - "6084:6080"
-      - "5559:5555"
     environment:
-      - DEVICE=Samsung Galaxy S10
+      - EMULATOR_DEVICE=Samsung Galaxy S10
       - WEB_VNC=true
-      - MEMORY=2048
-      - CPU=2
-      - AUTO_INSTALL_APK=/apk/whatsapp.apk
+    devices:
+      - /dev/kvm
     volumes:
       - ./data/android5-data:/root/android-storage
       - ./apk:/apk

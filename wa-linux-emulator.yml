@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   android1:
-    image: budtmo/docker-android-x86-11.0
+    image: budtmo/docker-android-x86:11.0
     container_name: android1
     privileged: true
     ports:
@@ -22,7 +22,7 @@ services:
       - intn-network
 
   android2:
-    image: budtmo/docker-android-x86-11.0
+    image: budtmo/docker-android-x86:11.0
     container_name: android2
     privileged: true
     ports:
@@ -42,7 +42,7 @@ services:
       - intn-network
 
   android3:
-    image: budtmo/docker-android-x86-11.0
+    image: budtmo/docker-android-x86:11.0
     container_name: android3
     privileged: true
     ports:
@@ -62,7 +62,7 @@ services:
       - intn-network
 
   android4:
-    image: budtmo/docker-android-x86-11.0
+    image: budtmo/docker-android-x86:11.0
     container_name: android4
     privileged: true
     ports:
@@ -82,7 +82,7 @@ services:
       - intn-network
 
   android5:
-    image: budtmo/docker-android-x86-11.0
+    image: budtmo/docker-android-x86:11.0
     container_name: android5
     privileged: true
     ports:

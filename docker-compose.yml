@@ -13,10 +13,18 @@ services:
       - NODE_ENV=production
     depends_on:
       - redis
-
+    networks:
+      - intn-network
+      
   redis:
     image: redis:6
     container_name: redis
     restart: always
     ports:
       - "6379:6379"
+    networks:
+      - intn-network
+
+networks:
+  intn-network:
+    external: true

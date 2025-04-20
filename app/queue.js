@@ -1,16 +1,14 @@
+// messageQueue.js
 const Queue = require('bull');
-const Redis = require('ioredis');
+const redisService = require('./redis'); // Import the Redis connection
 
-const redisOptions = {
-  host: 'redis',//'192.168.1.226', // Service name in docker-compose
-  port: 6379
-};
-
-const redisConnection = new Redis(redisOptions);
-
-// Create message queue
+// Create message queue using the existing Redis connection
 const messageQueue = new Queue('message-waqueue', {
-  redis: redisOptions
+  redis: {
+    host: redisService.connection.options.host,
+    port: redisService.connection.options.port 
+  }
 });
 
-module.exports = { messageQueue, redisConnection };
+// Export the message queue and Redis connection
+module.exports = { messageQueue, redisConnection: redisService.connection };
